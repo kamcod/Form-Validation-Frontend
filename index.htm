@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Validation Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="Assets/script.js"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</head>
+<body id="mainpage">
+    <div class="alert alert-success alert-dismissible" id="alerts">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Success!</strong> Your form is successfully submitted!!!
+      </div>
+      <div class="alert alert-danger alert-dismissible" id="alertf">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Danger!</strong> Please enter the valid details
+      </div>
+<div class="container">
+    
+  
+  <form class="myForm bg-light mt-4 mb-4" onsubmit="return validation()">
+    <h2 style="text-align: center; color:#00b3b3">Registration Form</h2><br>
+    <div class="form-group wid">
+        <label for="fname">Name:</label>
+      <input type="text" class="form-control" id="fname" placeholder="Enter full name" name="fname">
+      
+      <span id="nameerror" class="text-danger font-weight-bold small"></span>
+    </div>
+    <div class="form-group wid">
+        <!---------- Date of birth -------------->
+        <label>Date of Birth:</label>
+        
+        <select id="day" class="dates" onchange="return checkDate()">
+            <option value="1">01</option><option value="2">02</option><option value="3">03</option>
+            <option value="4">04</option><option value="5">05</option><option value="6">05</option>
+            <option value="7">07</option><option value="8">08</option><option value="9">09</option>
+            <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+            <option value="13">13</option><option value="14">14</option><option value="15">15</option>
+            <option value="16">16</option><option value="17">17</option><option value="18">18</option>
+            <option value="19">19</option><option value="20">20</option><option value="21">21</option>
+            <option value="22">22</option><option value="23">23</option><option value="24">24</option>
+            <option value="25">25</option><option value="26">26</option><option value="27">27</option>
+            <option value="28">28</option><option value="29">29</option><option value="30">30</option>
+        </option><option value="31">31</option>
+          </select>
+          <select id="month" class="dates"  onchange="return checkDate()">
+            <option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option>
+            <option value="4">April</option><option value="5">May</option><option value="6">Jun</option>
+            <option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option>
+            <option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option>
+            
+          </select>
+          <select id="year" class="dates"  onchange="return checkDate()">
+            <option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option>
+            <option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option>
+            <option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option>
+            <option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option>
+            <option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option>
+            <option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option>
+            <option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option>
+            <option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option>
+            <option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option>
+            
+          </select>
+      <br>
+      <span id="doberror" class="text-danger font-weight-bold small"></span>
+   
+    </div>
+    <div class="form-group wid">
+        <label for="gender" id="gender"> Gender: </label><br>
+                    <!----- Gender ----->
+                    <input type="radio" id="male" name="gender" value="Male" class="gender">
+                    <label for="male">Male</label> &nbsp; &nbsp;
+                    <input type="radio" id="fmale" name="gender" value="Female" class="gender">
+                    <label for="fmale">Female</label>
+                    <br><span id="gendererror" class="text-danger font-weight-bold small"></span>
+   
+    </div>
+    <div class="form-group wid">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+      <span id="emailerror" class="text-danger font-weight-bold small"></span>
+    </div>
+    <div class="form-group wid">
+        <label for="cnic"> CNIC: </label>
+                    <!----- CNIC ----->
+                    <input type="text" class="form-control" id="cnic" name="cnic">
+                    <span id="cnicerror" class="text-danger font-weight-bold small"></span>
+      </div>
+      <div class="form-group wid">
+        <label for="cnumber"> Contact No.: </label>
+                    
+                    <input type="text" class="form-control" id="cnumber" name="cnumber">
+                    <span id="cnumbererror" class="text-danger font-weight-bold small"></span>
+      </div>
+      <div class="form-group wid">
+        <label for="address"> Adddress: </label><br>
+                    
+        <textarea id="address" rows="4" cols="60" maxlength="128" class="form-control" name="address" placeholder="Enter your address here (128 word maximum)"></textarea>
+        <br><span id="adderror" class="text-danger font-weight-bold small"></span>
+     </div>
+
+    <div class="form-group wid">
+      <label for="city">City:</label>
+      <input type="text" maxlength="128" class="form-control" id="city" placeholder="Enter city" name="city">
+      <br><span id="cityerror" class="text-danger font-weight-bold small"></span>
+    </div>
+    <div class="form-group wid">
+        <br>
+        <!----- Upload Document ------->
+        <label for="doc">Upload document:</label><br>
+        <input type="file" id="doc" name="doc" onchange="return fileValidation()"/>
+        <br><span id="docerror" class="text-danger font-weight-bold small"></span>
+        <span id="filesize"></span>
+
+      </div>
+
+      <div class="form-group wid">
+        <label for="qualification">Qualification:</label>
+        <select id="qualification" class="form-control">
+            <option value="BA">BA</option>
+            <option value="BSCS">BSCS</option>
+            <option value="M-Phil">M-Phil</option>
+            <option value="Other" id="other">Other</option>
+          </select>
+          <br>
+          <input type="text" maxlength="50" class="form-control" id="othershow" placeholder="Other Qualification" name="other">
+          <br><span id="othererror" class="text-danger font-weight-bold small"></span>
+      </div>
+    
+      
+
+      <button type="submit" class="btn btn-primary btnwid">Submit</button>
+    
+  </form>
+</div>
+
+
+
+
+
+
+
+
+<script src="Assets/script.js"></script> 
+</body>
+</html>

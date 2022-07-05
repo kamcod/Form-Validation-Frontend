@@ -1,0 +1,62 @@
+body#mainpage{
+    background-image: url("Assets/cover.jpg");
+    background-size: cover;
+}
+
+.myForm{
+    width:50%;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid #99ffff;
+    border-radius: 5px;
+
+    }
+    @media screen and (max-width: 767px) {
+        .myForm {
+            width:75%;
+            margin: auto;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .myForm {
+            width:80%;
+        }
+      }
+      @media screen and (max-width: 420px) {
+        .myForm {
+            width:100%;
+        }
+      }
+#othershow{display: none;}
+
+.btnwid{width:100%;}
+
+body#datapage {
+    background-image: url("Assets/datacover.jpg");
+    background-size:cover;
+    }
+
+    
+    td {
+      padding: 15px;
+    }
+    table#tab{
+        width:50%;
+        margin:auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 30px;
+        background-color: rgba(255, 255, 255,0.7);
+
+        border:1px solid #d9f2d9;
+        border-radius: 5px;
+
+    }
+  
+
+    @media screen and (max-width: 391px) {
+        table {
+            
+            margin: 0 !important;
+        }
+    }
